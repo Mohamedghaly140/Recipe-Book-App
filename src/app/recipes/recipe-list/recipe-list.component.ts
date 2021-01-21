@@ -9,14 +9,14 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
-  recipes = [
+  recipes: Recipe[] = [
     new Recipe(
       'A test recipe',
       'this is a simply test recipe',
       'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
     ),
     new Recipe(
-      'A test recipe',
+      'An other test recipe',
       'this is a simply test recipe',
       'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg'
     ),
