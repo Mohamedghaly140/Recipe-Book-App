@@ -1,10 +1,6 @@
-<a
-  href="#"
-  (click)="onSelected()"
-  class="list-group-item list-group-item-action clearfix"
->
+<a href="#" class="list-group-item list-group-item-action clearfix">
   <div class="float-left">
-    <h4 class="text-primary" *ngIf="recipeSelected">{{ recipe.name }}</h4>
+    <h4 class="text-primary">{{ recipe.name }}</h4>
     <p class="text-body">{{ recipe.description }}</p>
   </div>
   <span class="float-right">
