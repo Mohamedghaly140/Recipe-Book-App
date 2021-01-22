@@ -2,10 +2,8 @@ import { EventEmitter } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 
-export class RecipeServices {
+export class RecipeService {
   constructor() {}
-
-  recipeSelected = new EventEmitter<Recipe>()
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -23,4 +21,6 @@ export class RecipeServices {
   getRecipes() {
     return [...this.recipes]
   }
+
+  recipeSelected = new EventEmitter<Recipe>()
 }
