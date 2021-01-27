@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border-bottom">
-  <a class="navbar-brand" href="#">Recipe Book</a>
+  <a class="navbar-brand" routerLink="/">Recipe Book</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -15,10 +15,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a>
+        <a class="nav-link" routerLink="/recipes" routerLinkActive="active"
+          >Recipes</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="onSelect('shopping-list')"
+        <a
+          class="nav-link"
+          routerLink="/shopping-list"
+          routerLinkActive="active"
           >Shopping List</a
         >
       </li>
