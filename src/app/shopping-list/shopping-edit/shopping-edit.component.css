@@ -1,0 +1,15 @@
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]::-moz-inner-spin-button {
+  -moz-appearance: none;
+}
+
+input[type="number"]::-o-inner-spin-button {
+  -o-appearance: none;
+}
+
+input[type="number"]::-ms-inner-spin-button {
+  -ms-appearance: none;
+}
