@@ -35,10 +35,24 @@
             class="btn btn-success"
             type="submit"
           >
-            Add
+            {{ editMode ? "Update" : "Add" }}
           </button>
-          <button class="btn btn-danger mx-3" type="button">Delete</button>
-          <button class="btn btn-outline-primary" type="reset">Clear</button>
+          <button
+            [disabled]="!ingForm.valid"
+            (click)="onDeleteIngredient()"
+            *ngIf="editMode"
+            class="btn btn-danger mx-3"
+            type="button"
+          >
+            Delete
+          </button>
+          <button
+            class="btn btn-outline-primary ml-3"
+            type="reset"
+            (click)="onClearForm()"
+          >
+            Clear
+          </button>
         </div>
       </div>
     </form>
