@@ -29,6 +29,7 @@
               type="text"
               id="name"
               formControlName="name"
+              #name
             />
           </div>
         </div>
@@ -42,13 +43,18 @@
               type="url"
               id="imagePath"
               formControlName="imagePath"
+              #imagePath
             />
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <img class="img-fluid" src="" alt="" />
+        <div class="col-12 py-2">
+          <img
+            class="img-fluid img-thumbnail"
+            [src]="imagePath.value"
+            [alt]="name.value"
+          />
         </div>
       </div>
       <div class="row">
@@ -94,7 +100,13 @@
               </div>
             </div>
             <div class="col-2 d-flex justify-content-center align-items-center">
-              <button type="button" class="btn btn-danger">X</button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteIngredient(i)"
+              >
+                X
+              </button>
             </div>
           </div>
           <hr />
