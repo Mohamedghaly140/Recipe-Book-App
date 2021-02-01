@@ -17,3 +17,8 @@ input[type="number"]::-ms-inner-spin-button {
 textarea {
   resize: none;
 }
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid #dc3545;
+}
