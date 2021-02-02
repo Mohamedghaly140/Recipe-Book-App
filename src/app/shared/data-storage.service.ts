@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/recipe.service';
@@ -9,13 +9,7 @@ import { RecipeService } from '../recipes/recipe.service';
   providedIn: 'root',
 })
 export class DataStorageService {
-  private loading: boolean = false;
-
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
-
-  getStatus() {
-    return this.loading;
-  }
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
@@ -28,8 +22,7 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    this.loading = true;
-    this.http
+    return this.http
       .get<Recipe[]>(
         'https://recipe-book-angular-app-default-rtdb.firebaseio.com/recipes.json'
       )
@@ -41,11 +34,8 @@ export class DataStorageService {
               ingredients: recipe.ingredients ? recipe.ingredients : [],
             };
           });
-        })
-      )
-      .subscribe((recipes: Recipe[]) => {
-        this.recipeService.setRecipes(recipes);
-        this.loading = false;
-      });
+        }),
+        tap((recipes: Recipe[]) => this.recipeService.setRecipes(recipes))
+      );
   }
 }
