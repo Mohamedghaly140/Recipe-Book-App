@@ -5,13 +5,9 @@ import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-
-  constructor(private shoppingListService: ShoppingListService) {}
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -27,6 +23,13 @@ export class RecipeService {
       [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
     ),
   ];
+
+  constructor(private shoppingListService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next([...this.recipes]);
+  }
 
   getRecipes() {
     return [...this.recipes];
