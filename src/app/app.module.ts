@@ -17,7 +17,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 // Services
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
