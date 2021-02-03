@@ -1,4 +1,5 @@
-.btn:focus {
+.btn:focus,
+button:focus {
   outline: none;
   box-shadow: none;
 }
