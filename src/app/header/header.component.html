@@ -78,7 +78,12 @@
           >
             Authenticate
           </a>
-          <a class="dropdown-item" href="javascript:;" *ngIf="isAuthenticated">
+          <a
+            class="dropdown-item"
+            href="javascript:;"
+            *ngIf="isAuthenticated"
+            (click)="onLogout()"
+          >
             Log out
           </a>
         </div>
