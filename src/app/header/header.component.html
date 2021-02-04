@@ -14,7 +14,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuthenticated">
         <a class="nav-link" routerLink="/recipes" routerLinkActive="active"
           >Recipes</a
         >
@@ -27,14 +27,15 @@
           >Shopping List</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuthenticated">
         <a
           class="nav-link"
           href="javascript:;"
           routerLink="/auth"
           routerLinkActive="active"
-          >Authenticate</a
         >
+          Authenticate
+        </a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -51,20 +52,35 @@
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="javascript:;" (click)="onSaveData()"
-            >Save Data</a
+          <a
+            class="dropdown-item"
+            href="javascript:;"
+            (click)="onSaveData()"
+            *ngIf="isAuthenticated"
           >
-          <a class="dropdown-item" href="javascript:;" (click)="onFetchData()"
-            >Fetch Data</a
+            Save Data
+          </a>
+          <a
+            class="dropdown-item"
+            href="javascript:;"
+            (click)="onFetchData()"
+            *ngIf="isAuthenticated"
           >
-          <div class="dropdown-divider"></div>
+            Fetch Data
+          </a>
+          <div class="dropdown-divider" *ngIf="isAuthenticated"></div>
           <a
             class="dropdown-item"
             href="javascript:;"
             routerLink="/auth"
             routerLinkActive="active"
-            >Authenticate</a
+            *ngIf="!isAuthenticated"
           >
+            Authenticate
+          </a>
+          <a class="dropdown-item" href="javascript:;" *ngIf="isAuthenticated">
+            Log out
+          </a>
         </div>
       </li>
     </ul>
